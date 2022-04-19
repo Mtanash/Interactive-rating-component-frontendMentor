@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-Grey: hsl(217, 12%, 63%);
+  --Medium-Grey: hsl(216, 12%, 54%);
+  --Dark-Blue: hsl(213, 19%, 18%);
+  --Very-Dark-Blue: hsl(216, 12%, 8%);
+  --Orange: hsl(25, 97%, 53%);
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  background-color: var(--Very-Dark-Blue);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 1rem auto;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* state card */
+
+.state-card {
+  /* Created with https://www.css-gradient.com */
+  background: #121517;
+  background: -webkit-radial-gradient(center, #121517, #252e37);
+  background: -moz-radial-gradient(center, #121517, #252e37);
+  background: radial-gradient(ellipse at center, #121517, #252e37);
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+  width: 340px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.state-card .star-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.state-card .star-icon::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  opacity: 0.15;
+  background-color: var(--Medium-Grey);
+  border-radius: 50%;
+}
+
+.state-card .star-icon > img {
+  width: 17px;
+  height: 17px;
+}
+
+.state-card .card-title {
+  color: var(--White);
+  display: inline-block;
+  margin: 0.75rem 0;
+}
+
+.state-card .card-description {
+  font-size: 15px;
+  color: var(--White);
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 0.8rem 0;
+}
+
+.state-card .rate-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1.35rem 0;
+}
+
+.state-card .rate-buttons > button {
+  outline: none;
+  display: inline-block;
+  background-color: var(--Medium-Grey);
+  color: var(--White);
+  opacity: 0.4;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.state-card .rate-buttons > button:hover {
+  opacity: 1;
+}
+
+.state-card .submit-button {
+  border-radius: 1rem;
+  background-color: var(--Orange);
+  color: var(--White);
+  border: none;
+  outline: none;
+  padding: 1rem 0.75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  cursor: pointer;
+}
+
+.state-card .submit-button:hover {
+  background-color: var(--White);
+  color: var(--Orange);
+}
+
+.selected {
+  background-color: var(--Orange) !important;
+  opacity: 1 !important;
+}
+
+.thankyou-state {
+  animation: fadeIn ease-in-out 1s;
+}
+
+.thankyou-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  align-self: center;
+}
+
+.rate-sentence {
+  width: fit-content;
+  align-self: center;
+  margin: 1rem 0;
+  color: var(--Orange);
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+}
+
+.rate-sentence::before {
+  content: "";
+  position: absolute;
+  width: 130%;
+  height: 180%;
+  border-radius: 1.5rem;
+  top: 50%;
+  left: 50%;
+  opacity: 0.2;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background-color: var(--Medium-Grey);
+}
+
+.thankyou {
+  color: var(--White);
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.thankyou-description {
+  color: var(--White);
+  opacity: 0.6;
+  font-size: 15px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 375px) {
+  .state-card {
+    width: 380px;
+    height: 400px;
+  }
+}
